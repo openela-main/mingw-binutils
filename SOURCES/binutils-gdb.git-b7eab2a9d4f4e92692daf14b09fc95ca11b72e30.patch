@@ -1,0 +1,13 @@
+diff -rupN --no-dereference binutils-2.40/ld/ldlang.c binutils-2.40-new/ld/ldlang.c
+--- binutils-2.40/ld/ldlang.c	2023-01-14 01:00:00.000000000 +0100
++++ binutils-2.40-new/ld/ldlang.c	2023-06-14 16:26:54.425556661 +0200
+@@ -649,7 +649,8 @@ wild_sort (lang_wild_statement_type *wil
+ 	 looking at the sections for this file.  */
+ 
+       /* Find the correct node to append this section.  */
+-      if (compare_section (sec->spec.sorted, section, (*tree)->section) < 0)
++      if (sec && sec->spec.sorted != none && sec->spec.sorted != by_none
++	  && compare_section (sec->spec.sorted, section, (*tree)->section) < 0)
+ 	tree = &((*tree)->left);
+       else
+ 	tree = &((*tree)->right);
