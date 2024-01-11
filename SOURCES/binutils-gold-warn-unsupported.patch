@@ -1,0 +1,67 @@
+diff -rupN --no-dereference binutils-2.39/bfd/config.bfd binutils-2.39-new/bfd/config.bfd
+--- binutils-2.39/bfd/config.bfd	2022-07-08 11:46:47.000000000 +0200
++++ binutils-2.39-new/bfd/config.bfd	2022-10-30 12:41:33.412023779 +0100
+@@ -490,7 +490,7 @@ case "${targ}" in
+     ;;
+ 
+ #ifdef BFD64
+-  bpf-*-none)
++  bpf-*-none | bpf-*)
+     targ_defvec=bpf_elf64_le_vec
+     targ_selvecs=bpf_elf64_be_vec
+     targ_underscore=yes
+@@ -1478,7 +1478,7 @@ case "${targ}" in
+     ;;
+ 
+   *)
+-    echo 1>&2 "*** BFD does not support target ${targ}."
++    echo 1>&2 "*** BFD does not support target '${targ}'.  Honest."
+     echo 1>&2 "*** Look in bfd/config.bfd for supported targets."
+     exit 1
+     ;;
+diff -rupN --no-dereference binutils-2.39/gold/configure binutils-2.39-new/gold/configure
+--- binutils-2.39/gold/configure	2022-07-08 11:58:08.000000000 +0200
++++ binutils-2.39-new/gold/configure	2022-10-30 12:41:33.410023779 +0100
+@@ -5223,7 +5223,8 @@ for targ in $target $canon_targets; do
+     . ${srcdir}/configure.tgt
+ 
+     if test "$targ_obj" = "UNKNOWN"; then
+-      as_fn_error $? "\"unsupported target $targ\"" "$LINENO" 5
++      { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: \"unsupported target $targ\"" >&5
++$as_echo "$as_me: WARNING: \"unsupported target $targ\"" >&2;}
+     else
+       targetobjs="$targetobjs ${targ_obj}.\$(OBJEXT)"
+       if test "$targ_extra_obj" != ""; then
+diff -rupN --no-dereference binutils-2.39/gold/configure.ac binutils-2.39-new/gold/configure.ac
+--- binutils-2.39/gold/configure.ac	2022-07-08 11:46:48.000000000 +0200
++++ binutils-2.39-new/gold/configure.ac	2022-10-30 12:41:33.411023779 +0100
+@@ -182,7 +182,7 @@ for targ in $target $canon_targets; do
+     . ${srcdir}/configure.tgt
+ 
+     if test "$targ_obj" = "UNKNOWN"; then
+-      AC_MSG_ERROR("unsupported target $targ")
++      AC_MSG_WARN("unsupported target $targ")
+     else
+       targetobjs="$targetobjs ${targ_obj}.\$(OBJEXT)"
+       if test "$targ_extra_obj" != ""; then
+diff -rupN --no-dereference binutils-2.39/ld/configure.tgt binutils-2.39-new/ld/configure.tgt
+--- binutils-2.39/ld/configure.tgt	2022-07-29 09:37:48.000000000 +0200
++++ binutils-2.39-new/ld/configure.tgt	2022-10-30 12:41:33.411023779 +0100
+@@ -258,7 +258,7 @@ bfin-*-linux-uclibc*)	targ_emul=elf32bfi
+ 			targ_extra_emuls="elf32bfin"
+ 			targ_extra_libpath=$targ_extra_emuls
+ 			;;
+-bpf-*-*)		targ_emul=elf64bpf
++bpf-* | bpf-*-*)	targ_emul=elf64bpf
+ 			;;
+ cr16-*-elf*)		targ_emul=elf32cr16
+ 			;;
+@@ -1078,7 +1078,7 @@ loongarch64-*)		targ_emul=elf64loongarch
+ 			targ_extra_ofiles=
+ 			;;
+ *)
+-  echo 2>&1 "*** ld does not support target ${targ}"
++  echo 2>&1 "*** ld does not support target '${targ}' NO REALLY"
+   echo 2>&1 "*** see ld/configure.tgt for supported targets"
+   exit 1
+ 
