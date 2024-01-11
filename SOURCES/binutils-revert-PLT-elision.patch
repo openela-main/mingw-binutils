@@ -1,6 +1,6 @@
-diff -rupN --no-dereference binutils-2.39/bfd/elfxx-x86.c binutils-2.39-new/bfd/elfxx-x86.c
---- binutils-2.39/bfd/elfxx-x86.c	2022-07-26 09:13:10.000000000 +0200
-+++ binutils-2.39-new/bfd/elfxx-x86.c	2022-10-30 12:41:26.471023746 +0100
+diff -rupN --no-dereference binutils-2.40/bfd/elfxx-x86.c binutils-2.40-new/bfd/elfxx-x86.c
+--- binutils-2.40/bfd/elfxx-x86.c	2023-01-14 01:00:00.000000000 +0100
++++ binutils-2.40-new/bfd/elfxx-x86.c	2023-03-09 14:51:52.557407133 +0100
 @@ -105,7 +105,7 @@ elf_x86_allocate_dynrelocs (struct elf_l
    plt_entry_size = htab->plt.plt_entry_size;
  
@@ -19,9 +19,9 @@ diff -rupN --no-dereference binutils-2.39/bfd/elfxx-x86.c binutils-2.39-new/bfd/
    /* Since STT_GNU_IFUNC symbol must go through PLT, we handle it
       here if it is defined and referenced in a non-shared object.  */
    if (h->type == STT_GNU_IFUNC
-diff -rupN --no-dereference binutils-2.39/ld/testsuite/ld-i386/pltgot-1.d binutils-2.39-new/ld/testsuite/ld-i386/pltgot-1.d
---- binutils-2.39/ld/testsuite/ld-i386/pltgot-1.d	2022-07-08 11:46:48.000000000 +0200
-+++ binutils-2.39-new/ld/testsuite/ld-i386/pltgot-1.d	2022-10-30 12:41:26.467023746 +0100
+diff -rupN --no-dereference binutils-2.40/ld/testsuite/ld-i386/pltgot-1.d binutils-2.40-new/ld/testsuite/ld-i386/pltgot-1.d
+--- binutils-2.40/ld/testsuite/ld-i386/pltgot-1.d	2023-01-14 01:00:00.000000000 +0100
++++ binutils-2.40-new/ld/testsuite/ld-i386/pltgot-1.d	2023-03-09 14:51:52.553407178 +0100
 @@ -2,6 +2,7 @@
  #readelf: -S --wide
  #as: --32
@@ -30,9 +30,9 @@ diff -rupN --no-dereference binutils-2.39/ld/testsuite/ld-i386/pltgot-1.d binuti
  #...
   +\[ *[0-9]+\] \.plt +PROGBITS +[0-9a-f]+ +[0-9a-f]+ +0+10 +.*
  #...
-diff -rupN --no-dereference binutils-2.39/ld/testsuite/ld-i386/pltgot-2.d binutils-2.39-new/ld/testsuite/ld-i386/pltgot-2.d
---- binutils-2.39/ld/testsuite/ld-i386/pltgot-2.d	2022-07-08 11:46:48.000000000 +0200
-+++ binutils-2.39-new/ld/testsuite/ld-i386/pltgot-2.d	2022-10-30 12:41:26.467023746 +0100
+diff -rupN --no-dereference binutils-2.40/ld/testsuite/ld-i386/pltgot-2.d binutils-2.40-new/ld/testsuite/ld-i386/pltgot-2.d
+--- binutils-2.40/ld/testsuite/ld-i386/pltgot-2.d	2023-01-14 01:00:00.000000000 +0100
++++ binutils-2.40-new/ld/testsuite/ld-i386/pltgot-2.d	2023-03-09 14:51:52.554407167 +0100
 @@ -3,7 +3,6 @@
  #readelf: -d --wide
  #as: --32
@@ -41,9 +41,9 @@ diff -rupN --no-dereference binutils-2.39/ld/testsuite/ld-i386/pltgot-2.d binuti
  #...
   +0x[0-9a-f]+ +\(PLTREL.*
  #...
-diff -rupN --no-dereference binutils-2.39/ld/testsuite/ld-i386/pr19636-2d.d binutils-2.39-new/ld/testsuite/ld-i386/pr19636-2d.d
---- binutils-2.39/ld/testsuite/ld-i386/pr19636-2d.d	2022-07-08 11:46:48.000000000 +0200
-+++ binutils-2.39-new/ld/testsuite/ld-i386/pr19636-2d.d	2022-10-30 12:41:26.467023746 +0100
+diff -rupN --no-dereference binutils-2.40/ld/testsuite/ld-i386/pr19636-2d.d binutils-2.40-new/ld/testsuite/ld-i386/pr19636-2d.d
+--- binutils-2.40/ld/testsuite/ld-i386/pr19636-2d.d	2023-01-14 01:00:00.000000000 +0100
++++ binutils-2.40-new/ld/testsuite/ld-i386/pr19636-2d.d	2023-03-09 14:51:52.554407167 +0100
 @@ -8,7 +8,7 @@ Relocation section '\.rel\.dyn' at offse
  [0-9a-f]+ +[0-9a-f]+ +R_386_32 +0+ +func
  [0-9a-f]+ +[0-9a-f]+ +R_386_PC32 +0+ +func
@@ -53,9 +53,9 @@ diff -rupN --no-dereference binutils-2.39/ld/testsuite/ld-i386/pr19636-2d.d binu
  Symbol table '\.dynsym' contains [0-9]+ entries:
   +Num: +Value +Size Type +Bind +Vis +Ndx Name
  #...
-diff -rupN --no-dereference binutils-2.39/ld/testsuite/ld-i386/pr19636-2e.d binutils-2.39-new/ld/testsuite/ld-i386/pr19636-2e.d
---- binutils-2.39/ld/testsuite/ld-i386/pr19636-2e.d	2022-07-08 11:46:48.000000000 +0200
-+++ binutils-2.39-new/ld/testsuite/ld-i386/pr19636-2e.d	2022-10-30 12:41:26.468023746 +0100
+diff -rupN --no-dereference binutils-2.40/ld/testsuite/ld-i386/pr19636-2e.d binutils-2.40-new/ld/testsuite/ld-i386/pr19636-2e.d
+--- binutils-2.40/ld/testsuite/ld-i386/pr19636-2e.d	2023-01-14 01:00:00.000000000 +0100
++++ binutils-2.40-new/ld/testsuite/ld-i386/pr19636-2e.d	2023-03-09 14:51:52.554407167 +0100
 @@ -8,7 +8,7 @@ Relocation section '\.rel\.dyn' at offse
  [0-9a-f]+ +[0-9a-f]+ +R_386_32 +0+ +func
  [0-9a-f]+ +[0-9a-f]+ +R_386_PC32 +0+ +func
@@ -65,9 +65,9 @@ diff -rupN --no-dereference binutils-2.39/ld/testsuite/ld-i386/pr19636-2e.d binu
  Symbol table '\.dynsym' contains [0-9]+ entries:
   +Num: +Value +Size Type +Bind +Vis +Ndx Name
  #...
-diff -rupN --no-dereference binutils-2.39/ld/testsuite/ld-i386/pr20830.d binutils-2.39-new/ld/testsuite/ld-i386/pr20830.d
---- binutils-2.39/ld/testsuite/ld-i386/pr20830.d	2022-07-08 11:46:48.000000000 +0200
-+++ binutils-2.39-new/ld/testsuite/ld-i386/pr20830.d	2022-10-30 12:41:26.472023746 +0100
+diff -rupN --no-dereference binutils-2.40/ld/testsuite/ld-i386/pr20830.d binutils-2.40-new/ld/testsuite/ld-i386/pr20830.d
+--- binutils-2.40/ld/testsuite/ld-i386/pr20830.d	2023-01-14 01:00:00.000000000 +0100
++++ binutils-2.40-new/ld/testsuite/ld-i386/pr20830.d	2023-03-09 14:51:52.557407133 +0100
 @@ -19,7 +19,7 @@ Contents of the .eh_frame section:
    DW_CFA_offset: r8 \(eip\) at cfa-4
    DW_CFA_nop
@@ -77,9 +77,9 @@ diff -rupN --no-dereference binutils-2.39/ld/testsuite/ld-i386/pr20830.d binutil
  0+18 00000010 0000001c FDE cie=00000000 pc=00000128..00000133
    DW_CFA_nop
    DW_CFA_nop
-diff -rupN --no-dereference binutils-2.39/ld/testsuite/ld-x86-64/pltgot-1.d binutils-2.39-new/ld/testsuite/ld-x86-64/pltgot-1.d
---- binutils-2.39/ld/testsuite/ld-x86-64/pltgot-1.d	2022-07-08 11:46:48.000000000 +0200
-+++ binutils-2.39-new/ld/testsuite/ld-x86-64/pltgot-1.d	2022-10-30 12:41:26.468023746 +0100
+diff -rupN --no-dereference binutils-2.40/ld/testsuite/ld-x86-64/pltgot-1.d binutils-2.40-new/ld/testsuite/ld-x86-64/pltgot-1.d
+--- binutils-2.40/ld/testsuite/ld-x86-64/pltgot-1.d	2023-01-14 01:00:00.000000000 +0100
++++ binutils-2.40-new/ld/testsuite/ld-x86-64/pltgot-1.d	2023-03-09 14:51:52.555407156 +0100
 @@ -2,8 +2,4 @@
  #readelf: -S --wide
  #as: --64
@@ -89,9 +89,9 @@ diff -rupN --no-dereference binutils-2.39/ld/testsuite/ld-x86-64/pltgot-1.d binu
 -#...
 - +\[ *[0-9]+\] \.got\.plt +PROGBITS +[0-9a-f]+ +[0-9a-f]+ +0+18 +.*
  #pass
-diff -rupN --no-dereference binutils-2.39/ld/testsuite/ld-x86-64/pltgot-2.d binutils-2.39-new/ld/testsuite/ld-x86-64/pltgot-2.d
---- binutils-2.39/ld/testsuite/ld-x86-64/pltgot-2.d	2022-07-08 11:46:48.000000000 +0200
-+++ binutils-2.39-new/ld/testsuite/ld-x86-64/pltgot-2.d	2022-10-30 12:41:26.469023746 +0100
+diff -rupN --no-dereference binutils-2.40/ld/testsuite/ld-x86-64/pltgot-2.d binutils-2.40-new/ld/testsuite/ld-x86-64/pltgot-2.d
+--- binutils-2.40/ld/testsuite/ld-x86-64/pltgot-2.d	2023-01-14 01:00:00.000000000 +0100
++++ binutils-2.40-new/ld/testsuite/ld-x86-64/pltgot-2.d	2023-03-09 14:51:52.555407156 +0100
 @@ -3,7 +3,6 @@
  #readelf: -d --wide
  #as: --64
@@ -100,17 +100,17 @@ diff -rupN --no-dereference binutils-2.39/ld/testsuite/ld-x86-64/pltgot-2.d binu
  #...
   +0x[0-9a-f]+ +\(PLTREL.*
  #...
-diff -rupN --no-dereference binutils-2.39/ld/testsuite/ld-x86-64/plt-main.rd binutils-2.39-new/ld/testsuite/ld-x86-64/plt-main.rd
---- binutils-2.39/ld/testsuite/ld-x86-64/plt-main.rd	2022-07-08 11:46:48.000000000 +0200
-+++ binutils-2.39-new/ld/testsuite/ld-x86-64/plt-main.rd	2022-10-30 12:41:26.469023746 +0100
+diff -rupN --no-dereference binutils-2.40/ld/testsuite/ld-x86-64/plt-main.rd binutils-2.40-new/ld/testsuite/ld-x86-64/plt-main.rd
+--- binutils-2.40/ld/testsuite/ld-x86-64/plt-main.rd	2023-01-14 01:00:00.000000000 +0100
++++ binutils-2.40-new/ld/testsuite/ld-x86-64/plt-main.rd	2023-03-09 14:51:52.555407156 +0100
 @@ -1,4 +1,3 @@
 -#failif
  #...
  [0-9a-f ]+R_X86_64_JUMP_SLOT +0+ +bar \+ 0
  #...
-diff -rupN --no-dereference binutils-2.39/ld/testsuite/ld-x86-64/pr20830a.d binutils-2.39-new/ld/testsuite/ld-x86-64/pr20830a.d
---- binutils-2.39/ld/testsuite/ld-x86-64/pr20830a.d	2022-07-08 11:46:48.000000000 +0200
-+++ binutils-2.39-new/ld/testsuite/ld-x86-64/pr20830a.d	2022-10-30 12:41:26.469023746 +0100
+diff -rupN --no-dereference binutils-2.40/ld/testsuite/ld-x86-64/pr20830a.d binutils-2.40-new/ld/testsuite/ld-x86-64/pr20830a.d
+--- binutils-2.40/ld/testsuite/ld-x86-64/pr20830a.d	2023-01-14 01:00:00.000000000 +0100
++++ binutils-2.40-new/ld/testsuite/ld-x86-64/pr20830a.d	2023-03-09 14:51:52.555407156 +0100
 @@ -20,6 +20,7 @@ Contents of the .eh_frame section:
    DW_CFA_offset: r16 \(rip\) at cfa-8
    DW_CFA_nop
@@ -119,9 +119,9 @@ diff -rupN --no-dereference binutils-2.39/ld/testsuite/ld-x86-64/pr20830a.d binu
  
  0+18 0000000000000014 0000001c FDE cie=00000000 pc=00000000000001c8..00000000000001d4
    DW_CFA_nop
-diff -rupN --no-dereference binutils-2.39/ld/testsuite/ld-x86-64/pr20830a-now.d binutils-2.39-new/ld/testsuite/ld-x86-64/pr20830a-now.d
---- binutils-2.39/ld/testsuite/ld-x86-64/pr20830a-now.d	2022-07-08 11:46:48.000000000 +0200
-+++ binutils-2.39-new/ld/testsuite/ld-x86-64/pr20830a-now.d	2022-10-30 12:41:26.469023746 +0100
+diff -rupN --no-dereference binutils-2.40/ld/testsuite/ld-x86-64/pr20830a-now.d binutils-2.40-new/ld/testsuite/ld-x86-64/pr20830a-now.d
+--- binutils-2.40/ld/testsuite/ld-x86-64/pr20830a-now.d	2023-01-14 01:00:00.000000000 +0100
++++ binutils-2.40-new/ld/testsuite/ld-x86-64/pr20830a-now.d	2023-03-09 14:51:52.555407156 +0100
 @@ -20,6 +20,7 @@ Contents of the .eh_frame section:
    DW_CFA_offset: r16 \(rip\) at cfa-8
    DW_CFA_nop
@@ -130,9 +130,9 @@ diff -rupN --no-dereference binutils-2.39/ld/testsuite/ld-x86-64/pr20830a-now.d 
  
  0+18 0000000000000014 0000001c FDE cie=00000000 pc=00000000000001c8..00000000000001d4
    DW_CFA_nop
-diff -rupN --no-dereference binutils-2.39/ld/testsuite/ld-x86-64/pr20830b.d binutils-2.39-new/ld/testsuite/ld-x86-64/pr20830b.d
---- binutils-2.39/ld/testsuite/ld-x86-64/pr20830b.d	2022-07-08 11:46:48.000000000 +0200
-+++ binutils-2.39-new/ld/testsuite/ld-x86-64/pr20830b.d	2022-10-30 12:41:26.469023746 +0100
+diff -rupN --no-dereference binutils-2.40/ld/testsuite/ld-x86-64/pr20830b.d binutils-2.40-new/ld/testsuite/ld-x86-64/pr20830b.d
+--- binutils-2.40/ld/testsuite/ld-x86-64/pr20830b.d	2023-01-14 01:00:00.000000000 +0100
++++ binutils-2.40-new/ld/testsuite/ld-x86-64/pr20830b.d	2023-03-09 14:51:52.556407144 +0100
 @@ -20,7 +20,8 @@ Contents of the .eh_frame section:
    DW_CFA_offset: r16 \(rip\) at cfa-8
    DW_CFA_nop
@@ -143,9 +143,9 @@ diff -rupN --no-dereference binutils-2.39/ld/testsuite/ld-x86-64/pr20830b.d binu
  0+18 0000000000000010 0000001c FDE cie=00000000 pc=0000000000000138..0000000000000144
    DW_CFA_nop
    DW_CFA_nop
-diff -rupN --no-dereference binutils-2.39/ld/testsuite/ld-x86-64/pr20830b-now.d binutils-2.39-new/ld/testsuite/ld-x86-64/pr20830b-now.d
---- binutils-2.39/ld/testsuite/ld-x86-64/pr20830b-now.d	2022-07-08 11:46:48.000000000 +0200
-+++ binutils-2.39-new/ld/testsuite/ld-x86-64/pr20830b-now.d	2022-10-30 12:41:26.469023746 +0100
+diff -rupN --no-dereference binutils-2.40/ld/testsuite/ld-x86-64/pr20830b-now.d binutils-2.40-new/ld/testsuite/ld-x86-64/pr20830b-now.d
+--- binutils-2.40/ld/testsuite/ld-x86-64/pr20830b-now.d	2023-01-14 01:00:00.000000000 +0100
++++ binutils-2.40-new/ld/testsuite/ld-x86-64/pr20830b-now.d	2023-03-09 14:51:52.556407144 +0100
 @@ -20,7 +20,8 @@ Contents of the .eh_frame section:
    DW_CFA_offset: r16 \(rip\) at cfa-8
    DW_CFA_nop
@@ -156,85 +156,9 @@ diff -rupN --no-dereference binutils-2.39/ld/testsuite/ld-x86-64/pr20830b-now.d 
  0+18 0000000000000010 0000001c FDE cie=00000000 pc=0000000000000138..0000000000000144
    DW_CFA_nop
    DW_CFA_nop
-diff -rupN --no-dereference binutils-2.39/ld/testsuite/ld-x86-64/pr21038a.d binutils-2.39-new/ld/testsuite/ld-x86-64/pr21038a.d
---- binutils-2.39/ld/testsuite/ld-x86-64/pr21038a.d	2022-07-08 11:46:48.000000000 +0200
-+++ binutils-2.39-new/ld/testsuite/ld-x86-64/pr21038a.d	2022-10-30 12:41:26.470023746 +0100
-@@ -19,7 +19,8 @@ Contents of the .eh_frame section:
-   DW_CFA_offset: r16 \(rip\) at cfa-8
-   DW_CFA_nop
-   DW_CFA_nop
--
-+#pass
-+  
- 0+18 0000000000000014 0000001c FDE cie=00000000 pc=00000000000001c8..00000000000001d4
-   DW_CFA_nop
-   DW_CFA_nop
-diff -rupN --no-dereference binutils-2.39/ld/testsuite/ld-x86-64/pr21038a-now.d binutils-2.39-new/ld/testsuite/ld-x86-64/pr21038a-now.d
---- binutils-2.39/ld/testsuite/ld-x86-64/pr21038a-now.d	2022-07-08 11:46:48.000000000 +0200
-+++ binutils-2.39-new/ld/testsuite/ld-x86-64/pr21038a-now.d	2022-10-30 12:41:26.470023746 +0100
-@@ -20,7 +20,8 @@ Contents of the .eh_frame section:
-   DW_CFA_offset: r16 \(rip\) at cfa-8
-   DW_CFA_nop
-   DW_CFA_nop
--
-+#pass
-+  
- 0+18 0000000000000014 0000001c FDE cie=00000000 pc=00000000000001c8..00000000000001d4
-   DW_CFA_nop
-   DW_CFA_nop
-diff -rupN --no-dereference binutils-2.39/ld/testsuite/ld-x86-64/pr21038b.d binutils-2.39-new/ld/testsuite/ld-x86-64/pr21038b.d
---- binutils-2.39/ld/testsuite/ld-x86-64/pr21038b.d	2022-07-08 11:46:48.000000000 +0200
-+++ binutils-2.39-new/ld/testsuite/ld-x86-64/pr21038b.d	2022-10-30 12:41:26.470023746 +0100
-@@ -19,6 +19,7 @@ Contents of the .eh_frame section:
-   DW_CFA_offset: r16 \(rip\) at cfa-8
-   DW_CFA_nop
-   DW_CFA_nop
-+#pass
- 
- 0+18 0000000000000014 0000001c FDE cie=00000000 pc=00000000000001d8..00000000000001dd
-   DW_CFA_nop
-diff -rupN --no-dereference binutils-2.39/ld/testsuite/ld-x86-64/pr21038b-now.d binutils-2.39-new/ld/testsuite/ld-x86-64/pr21038b-now.d
---- binutils-2.39/ld/testsuite/ld-x86-64/pr21038b-now.d	2022-07-08 11:46:48.000000000 +0200
-+++ binutils-2.39-new/ld/testsuite/ld-x86-64/pr21038b-now.d	2022-10-30 12:41:26.470023746 +0100
-@@ -20,7 +20,8 @@ Contents of the .eh_frame section:
-   DW_CFA_offset: r16 \(rip\) at cfa-8
-   DW_CFA_nop
-   DW_CFA_nop
--
-+#pass
-+  
- 0+18 0000000000000014 0000001c FDE cie=00000000 pc=00000000000001d8..00000000000001dd
-   DW_CFA_nop
-   DW_CFA_nop
-diff -rupN --no-dereference binutils-2.39/ld/testsuite/ld-x86-64/pr21038c.d binutils-2.39-new/ld/testsuite/ld-x86-64/pr21038c.d
---- binutils-2.39/ld/testsuite/ld-x86-64/pr21038c.d	2022-07-08 11:46:48.000000000 +0200
-+++ binutils-2.39-new/ld/testsuite/ld-x86-64/pr21038c.d	2022-10-30 12:41:26.470023746 +0100
-@@ -19,7 +19,8 @@ Contents of the .eh_frame section:
-   DW_CFA_offset: r16 \(rip\) at cfa-8
-   DW_CFA_nop
-   DW_CFA_nop
--
-+#pass
-+  
- 0+18 0000000000000014 0000001c FDE cie=00000000 pc=0000000000000220..0000000000000231
-   DW_CFA_nop
-   DW_CFA_nop
-diff -rupN --no-dereference binutils-2.39/ld/testsuite/ld-x86-64/pr21038c-now.d binutils-2.39-new/ld/testsuite/ld-x86-64/pr21038c-now.d
---- binutils-2.39/ld/testsuite/ld-x86-64/pr21038c-now.d	2022-07-08 11:46:48.000000000 +0200
-+++ binutils-2.39-new/ld/testsuite/ld-x86-64/pr21038c-now.d	2022-10-30 12:41:26.470023746 +0100
-@@ -20,7 +20,8 @@ Contents of the .eh_frame section:
-   DW_CFA_offset: r16 \(rip\) at cfa-8
-   DW_CFA_nop
-   DW_CFA_nop
--
-+#pass
-+  
- 0+18 0000000000000014 0000001c FDE cie=00000000 pc=0000000000000220..0000000000000231
-   DW_CFA_nop
-   DW_CFA_nop
-diff -rupN --no-dereference binutils-2.39/ld/testsuite/ld-x86-64/tlspic2.rd binutils-2.39-new/ld/testsuite/ld-x86-64/tlspic2.rd
---- binutils-2.39/ld/testsuite/ld-x86-64/tlspic2.rd	2022-07-08 11:46:48.000000000 +0200
-+++ binutils-2.39-new/ld/testsuite/ld-x86-64/tlspic2.rd	2022-10-30 12:41:26.471023746 +0100
+diff -rupN --no-dereference binutils-2.40/ld/testsuite/ld-x86-64/tlspic2.rd binutils-2.40-new/ld/testsuite/ld-x86-64/tlspic2.rd
+--- binutils-2.40/ld/testsuite/ld-x86-64/tlspic2.rd	2023-01-14 01:00:00.000000000 +0100
++++ binutils-2.40-new/ld/testsuite/ld-x86-64/tlspic2.rd	2023-03-09 14:51:52.556407144 +0100
 @@ -14,6 +14,7 @@ Section Headers:
   +\[[ 0-9]+\] .dynsym +.*
   +\[[ 0-9]+\] .dynstr +.*

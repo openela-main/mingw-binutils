@@ -1,7 +1,7 @@
-diff -rupN --no-dereference binutils-2.39/binutils/readelf.c binutils-2.39-new/binutils/readelf.c
---- binutils-2.39/binutils/readelf.c	2022-07-08 11:46:47.000000000 +0200
-+++ binutils-2.39-new/binutils/readelf.c	2022-10-30 12:41:25.339023741 +0100
-@@ -22710,46 +22710,53 @@ process_file (char * file_name)
+diff -rupN --no-dereference binutils-2.40/binutils/readelf.c binutils-2.40-new/binutils/readelf.c
+--- binutils-2.40/binutils/readelf.c	2023-01-14 01:00:00.000000000 +0100
++++ binutils-2.40-new/binutils/readelf.c	2023-03-09 14:51:51.335420794 +0100
+@@ -22858,46 +22858,53 @@ process_file (char * file_name)
    Filedata * filedata = NULL;
    struct stat statbuf;
    char armag[SARMAG];
@@ -69,8 +69,8 @@ diff -rupN --no-dereference binutils-2.39/binutils/readelf.c binutils-2.39-new/b
 +      goto done;
      }
  
-   filedata->file_size = (bfd_size_type) statbuf.st_size;
-@@ -22757,33 +22764,39 @@ process_file (char * file_name)
+   filedata->file_size = statbuf.st_size;
+@@ -22905,33 +22912,39 @@ process_file (char * file_name)
  
    if (memcmp (armag, ARMAG, SARMAG) == 0)
      {

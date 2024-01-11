@@ -1,6 +1,6 @@
-diff -rupN --no-dereference binutils-2.39/gold/i386.cc binutils-2.39-new/gold/i386.cc
---- binutils-2.39/gold/i386.cc	2022-07-08 11:46:48.000000000 +0200
-+++ binutils-2.39-new/gold/i386.cc	2022-10-30 12:41:35.714023790 +0100
+diff -rupN --no-dereference binutils-2.40/gold/i386.cc binutils-2.40-new/gold/i386.cc
+--- binutils-2.40/gold/i386.cc	2023-01-14 01:00:00.000000000 +0100
++++ binutils-2.40-new/gold/i386.cc	2023-03-09 14:52:02.399293207 +0100
 @@ -360,7 +360,11 @@ class Target_i386 : public Sized_target<
        got_(NULL), plt_(NULL), got_plt_(NULL), got_irelative_(NULL),
        got_tlsdesc_(NULL), global_offset_table_(NULL), rel_dyn_(NULL),

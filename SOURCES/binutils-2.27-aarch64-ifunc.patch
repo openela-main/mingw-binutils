@@ -1,0 +1,11 @@
+diff -rupN --no-dereference binutils-2.40/bfd/elfnn-aarch64.c binutils-2.40-new/bfd/elfnn-aarch64.c
+--- binutils-2.40/bfd/elfnn-aarch64.c	2023-01-14 01:00:00.000000000 +0100
++++ binutils-2.40-new/bfd/elfnn-aarch64.c	2023-03-09 14:51:55.011379383 +0100
+@@ -5487,6 +5487,7 @@ elfNN_aarch64_final_link_relocate (reloc
+      it here if it is defined in a non-shared object.  */
+   if (h != NULL
+       && h->type == STT_GNU_IFUNC
++      && (input_section->flags & SEC_ALLOC)
+       && h->def_regular)
+     {
+       asection *plt;

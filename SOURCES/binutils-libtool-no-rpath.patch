@@ -1,6 +1,6 @@
-diff -rupN --no-dereference binutils-2.39/ltmain.sh binutils-2.39-new/ltmain.sh
---- binutils-2.39/ltmain.sh	2022-07-08 11:46:48.000000000 +0200
-+++ binutils-2.39-new/ltmain.sh	2022-10-30 12:41:38.049023801 +0100
+diff -rupN --no-dereference binutils-2.40/ltmain.sh binutils-2.40-new/ltmain.sh
+--- binutils-2.40/ltmain.sh	2023-01-14 01:00:00.000000000 +0100
++++ binutils-2.40-new/ltmain.sh	2023-03-09 14:52:04.803264344 +0100
 @@ -7103,6 +7103,7 @@ EOF
  	  rpath="$finalize_rpath"
  	  test "$mode" != relink && rpath="$compile_rpath$rpath"

@@ -1,7 +1,7 @@
-diff -rupN --no-dereference binutils-2.39/binutils/readelf.c binutils-2.39-new/binutils/readelf.c
---- binutils-2.39/binutils/readelf.c	2022-10-30 12:41:26.462023746 +0100
-+++ binutils-2.39-new/binutils/readelf.c	2022-10-30 12:41:27.687023752 +0100
-@@ -13177,11 +13177,13 @@ print_dynamic_symbol (Filedata *filedata
+diff -rupN --no-dereference binutils-2.40/binutils/readelf.c binutils-2.40-new/binutils/readelf.c
+--- binutils-2.40/binutils/readelf.c	2023-03-09 14:51:52.549407223 +0100
++++ binutils-2.40-new/binutils/readelf.c	2023-03-09 14:51:53.790393244 +0100
+@@ -13247,11 +13247,13 @@ print_dynamic_symbol (Filedata *filedata
        unsigned int vis = ELF_ST_VISIBILITY (psym->st_other);
  
        printf (" %-7s", get_symbol_visibility (vis));
@@ -15,7 +15,7 @@ diff -rupN --no-dereference binutils-2.39/binutils/readelf.c binutils-2.39-new/b
      }
    printf (" %4s ", get_symbol_index_type (filedata, psym->st_shndx));
  
-@@ -13235,7 +13237,17 @@ print_dynamic_symbol (Filedata *filedata
+@@ -13305,7 +13307,17 @@ print_dynamic_symbol (Filedata *filedata
  		version_string);
      }
  

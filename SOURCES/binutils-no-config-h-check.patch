@@ -1,6 +1,6 @@
-diff -rupN --no-dereference binutils-2.39/bfd/bfd-in2.h binutils-2.39-new/bfd/bfd-in2.h
---- binutils-2.39/bfd/bfd-in2.h	2022-08-01 09:12:32.000000000 +0200
-+++ binutils-2.39-new/bfd/bfd-in2.h	2022-10-30 12:41:24.134023735 +0100
+diff -rupN --no-dereference binutils-2.40/bfd/bfd-in2.h binutils-2.40-new/bfd/bfd-in2.h
+--- binutils-2.40/bfd/bfd-in2.h	2023-01-14 01:00:00.000000000 +0100
++++ binutils-2.40-new/bfd/bfd-in2.h	2023-03-09 14:51:50.115434327 +0100
 @@ -30,11 +30,6 @@
  #ifndef __BFD_H_SEEN__
  #define __BFD_H_SEEN__
@@ -13,9 +13,9 @@ diff -rupN --no-dereference binutils-2.39/bfd/bfd-in2.h binutils-2.39-new/bfd/bf
  #ifdef __cplusplus
  extern "C" {
  #endif
-diff -rupN --no-dereference binutils-2.39/bfd/bfd-in.h binutils-2.39-new/bfd/bfd-in.h
---- binutils-2.39/bfd/bfd-in.h	2022-08-01 09:12:32.000000000 +0200
-+++ binutils-2.39-new/bfd/bfd-in.h	2022-10-30 12:41:24.133023735 +0100
+diff -rupN --no-dereference binutils-2.40/bfd/bfd-in.h binutils-2.40-new/bfd/bfd-in.h
+--- binutils-2.40/bfd/bfd-in.h	2023-01-14 01:00:00.000000000 +0100
++++ binutils-2.40-new/bfd/bfd-in.h	2023-03-09 14:51:50.114434338 +0100
 @@ -23,11 +23,6 @@
  #ifndef __BFD_H_SEEN__
  #define __BFD_H_SEEN__
