@@ -1,6 +1,6 @@
-diff -rupN --no-dereference binutils-2.40/config/override.m4 binutils-2.40-new/config/override.m4
---- binutils-2.40/config/override.m4	2023-01-14 01:00:00.000000000 +0100
-+++ binutils-2.40-new/config/override.m4	2023-03-09 14:52:03.599278848 +0100
+diff -rupN --no-dereference binutils-2.41/config/override.m4 binutils-2.41-new/config/override.m4
+--- binutils-2.41/config/override.m4	2023-07-03 01:00:00.000000000 +0200
++++ binutils-2.41-new/config/override.m4	2023-10-17 08:36:14.285923364 +0200
 @@ -41,7 +41,7 @@ dnl Or for updating the whole tree at on
  AC_DEFUN([_GCC_AUTOCONF_VERSION_CHECK],
  [m4_if(m4_defn([_GCC_AUTOCONF_VERSION]),

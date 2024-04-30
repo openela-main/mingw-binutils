@@ -1,0 +1,12 @@
+diff -rupN --no-dereference binutils-2.41/gold/dwp.cc binutils-2.41-new/gold/dwp.cc
+--- binutils-2.41/gold/dwp.cc	2023-07-03 01:00:00.000000000 +0200
++++ binutils-2.41-new/gold/dwp.cc	2023-10-17 08:36:16.689052035 +0200
+@@ -2418,6 +2418,8 @@ main(int argc, char** argv)
+     {
+       Dwo_file exe_file(exe_filename);
+       exe_file.read_executable(&files);
++      if (files.empty())
++        gold_fatal(_("Could not find any dwo links in specified EXE"));
+     }
+ 
+   // Add any additional files listed on command line.
