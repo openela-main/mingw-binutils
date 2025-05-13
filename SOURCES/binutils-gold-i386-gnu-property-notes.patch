@@ -1,7 +1,8 @@
-diff -rupN --no-dereference binutils-2.41/gold/i386.cc binutils-2.41-new/gold/i386.cc
---- binutils-2.41/gold/i386.cc	2023-07-03 01:00:00.000000000 +0200
-+++ binutils-2.41-new/gold/i386.cc	2023-10-17 08:36:13.132861427 +0200
-@@ -360,7 +360,11 @@ class Target_i386 : public Sized_target<
+diff --git a/gold/i386.cc b/gold/i386.cc
+index bf209fe9a86..31161ff091c 100644
+--- a/gold/i386.cc
++++ b/gold/i386.cc
+@@ -360,7 +360,11 @@ class Target_i386 : public Sized_target<32, false>
        got_(NULL), plt_(NULL), got_plt_(NULL), got_irelative_(NULL),
        got_tlsdesc_(NULL), global_offset_table_(NULL), rel_dyn_(NULL),
        rel_irelative_(NULL), copy_relocs_(elfcpp::R_386_COPY),
@@ -14,7 +15,7 @@ diff -rupN --no-dereference binutils-2.41/gold/i386.cc binutils-2.41-new/gold/i3
    { }
  
    // Process the relocations to determine unreferenced sections for
-@@ -859,6 +863,21 @@ class Target_i386 : public Sized_target<
+@@ -859,6 +863,21 @@ class Target_i386 : public Sized_target<32, false>
  				  this->rel_dyn_section(layout));
    }
  
@@ -36,7 +37,7 @@ diff -rupN --no-dereference binutils-2.41/gold/i386.cc binutils-2.41-new/gold/i3
    // Information about this specific target which we pass to the
    // general Target structure.
    static const Target::Target_info i386_info;
-@@ -898,6 +917,26 @@ class Target_i386 : public Sized_target<
+@@ -898,6 +917,26 @@ class Target_i386 : public Sized_target<32, false>
    unsigned int got_mod_index_offset_;
    // True if the _TLS_MODULE_BASE_ symbol has been defined.
    bool tls_base_symbol_defined_;
@@ -63,7 +64,7 @@ diff -rupN --no-dereference binutils-2.41/gold/i386.cc binutils-2.41-new/gold/i3
  };
  
  const Target::Target_info Target_i386::i386_info =
-@@ -1042,6 +1081,126 @@ Target_i386::rel_irelative_section(Layou
+@@ -1042,6 +1081,126 @@ Target_i386::rel_irelative_section(Layout* layout)
    return this->rel_irelative_;
  }
  

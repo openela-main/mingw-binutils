@@ -3,11 +3,11 @@
 %define enable_new_dtags 0
 
 Name:           mingw-binutils
-Version:        2.41
-Release:        3%{?dist}
+Version:        2.43.1
+Release:        2%{?dist}
 Summary:        Cross-compiled version of binutils for Win32 and Win64 environments
 
-License:        GPL-3.0-or-later AND (GPL-3.0-or-later WITH Bison-exception-2.2) AND (LGPL-2.0-or-later WITH GCC-exception-2.0) AND BSD-3-Clause AND GFDL-1.3-or-later AND GPL-2.0-or-later LGPL-2.1-or-later AND LGPL-2.0-or-later
+License:        GPL-3.0-or-later AND (GPL-3.0-or-later WITH Bison-exception-2.2) AND (LGPL-2.0-or-later WITH GCC-exception-2.0) AND BSD-3-Clause AND GFDL-1.3-or-later AND GPL-2.0-or-later AND LGPL-2.1-or-later AND LGPL-2.0-or-later
 
 URL:            http://www.gnu.org/software/binutils/
 Source0:        http://ftp.gnu.org/gnu/binutils/binutils-%{version}.tar.xz
@@ -63,12 +63,12 @@ Patch06: binutils-2.27-aarch64-ifunc.patch
 Patch07: binutils-do-not-link-with-static-libstdc++.patch
 
 # Purpose:  Allow OS specific sections in section groups.
-# Lifetime: Fixed in 2.42 (maybe)
-Patch08: binutils-special-sections-in-groups.patch
+# Lifetime: Fixed in 2.43 (maybe)
+# Patch08: binutils-special-sections-in-groups.patch
 
 # Purpose:  Stop gold from aborting when input sections with the same name
 #            have different flags.
-# Lifetime: Fixed in 2.42 (maybe)
+# Lifetime: Fixed in 2.43 (maybe)
 Patch09: binutils-gold-mismatched-section-flags.patch
 
 # Purpose:  Change the gold configuration script to only warn about
@@ -84,21 +84,15 @@ Patch11: binutils-gold-i386-gnu-property-notes.patch
 
 # Purpose:  Allow the binutils to be configured with any (recent) version of
 #            autoconf.
-# Lifetime: Fixed in 2.42 (maybe ?)
+# Lifetime: Fixed in 2.44 (maybe ?)
 Patch12: binutils-autoconf-version.patch
 
 # Purpose:  Stop libtool from inserting useless runpaths into binaries.
 # Lifetime: Who knows.
 Patch13: binutils-libtool-no-rpath.patch
 
-%if %{enable_new_dtags}
-# Purpose:  Change ld man page so that it says that --enable-new-dtags is the default.
-# Lifetime: Permanent
-Patch14: binutils-update-linker-manual.patch
-%endif
-
 # Purpose:  Stop an abort when using dwp to process a file with no dwo links.
-# Lifetime: Fixed in 2.42 (maybe)
+# Lifetime: Fixed in 2.44 (maybe)
 Patch15: binutils-gold-empty-dwp.patch
 
 # Purpose:  Fix binutils testsuite failures.
@@ -109,14 +103,21 @@ Patch16: binutils-testsuite-fixes.patch
 # Lifetime: Permanent, but varies with each rebase.
 Patch17: binutils-riscv-testsuite-fixes.patch
 
-# Purpose:  Fix the GOLD linker's handling of 32-bit PowerPC binaries.
-# Lifetime: Fixed in 2.42
-Patch18: binutils-gold-powerpc.patch
+# Purpose:  Make the GOLD linker ignore the "-z pack-relative-relocs" command line option.
+# Lifetime: Fixed in 2.44 (maybe)
+Patch18: binutils-gold-pack-relative-relocs.patch
 
-# Purpose:  Fix a potential NULL pointer dereference when parsing corrupt
-#            ELF symbol version information.
-# Lifetime: Fixed in 2.42
-Patch19: binutils-handle-corrupt-version-info.patch
+# Purpose:  Let the gold lihnker ignore --error-execstack and --error-rwx-segments.
+# Lifetime: Fixed in 2.44 (maybe)
+Patch19: binutils-gold-ignore-execstack-error.patch
+
+# Purpose:  Fix the ar test of non-deterministic archives.
+# Lifetime: Fixed in 2.44
+Patch20: binutils-fix-ar-test.patch
+
+# Purpose:  Suppress the x86 linker's p_align-1 tests due to kernel bug on CentOS-10
+# Lifetime: TEMPORARY
+Patch99: binutils-suppress-ld-align-tests.patch
 
 
 BuildRequires:  make
@@ -125,9 +126,9 @@ BuildRequires:  flex
 BuildRequires:  bison
 BuildRequires:  texinfo
 BuildRequires:  zlib-devel
-BuildRequires:  mingw32-filesystem >= 133
-BuildRequires:  mingw64-filesystem >= 133
-BuildRequires:  ucrt64-filesystem >= 133
+BuildRequires:  mingw32-filesystem
+BuildRequires:  mingw64-filesystem
+BuildRequires:  ucrt64-filesystem
 %if %{run_testsuite}
 BuildRequires:  dejagnu
 BuildRequires:  sharutils
@@ -450,6 +451,18 @@ rm -rf %{buildroot}%{_mandir}/man1/*
 
 
 %changelog
+* Wed Oct 02 2024 Davide Cavalca <dcavalca@fedoraproject.org> - 2.43.1-2
+- Fix invalid SPDX expression in license tag
+
+* Tue Aug 20 2024 Sandro Mani <manisandro@gmail.com> - 2.43.1-1
+- Update to 2.43.1
+
+* Thu Jul 18 2024 Fedora Release Engineering <releng@fedoraproject.org> - 2.42-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_41_Mass_Rebuild
+
+* Sun Feb 18 2024 Sandro Mani <manisandro@gmail.com> - 2.42-1
+- Update to 2.42
+
 * Thu Jan 25 2024 Fedora Release Engineering <releng@fedoraproject.org> - 2.41-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_40_Mass_Rebuild
 

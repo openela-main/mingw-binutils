@@ -1,6 +1,5 @@
-diff -rupN --no-dereference binutils-2.41/gold/dwp.cc binutils-2.41-new/gold/dwp.cc
---- binutils-2.41/gold/dwp.cc	2023-07-03 01:00:00.000000000 +0200
-+++ binutils-2.41-new/gold/dwp.cc	2023-10-17 08:36:16.689052035 +0200
+--- binutils.orig/gold/dwp.cc	2023-05-02 13:26:44.075148082 +0100
++++ binutils-2.40/gold/dwp.cc	2023-05-02 13:27:16.189130127 +0100
 @@ -2418,6 +2418,8 @@ main(int argc, char** argv)
      {
        Dwo_file exe_file(exe_filename);
